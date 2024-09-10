@@ -1,26 +1,22 @@
-@import '/src/assets/styles/style.css';
+@import "/src/assets/styles/style.css";
 
 footer {
   height: 10rem;
   padding: 2rem 12.5rem 109px;
   background-color: var(--grey-900);
   width: 100%;
-  position: relative;
 }
 
 .registerFooter {
-  top: 1233px;
-  position: absolute;
+  margin-top: 794px;
 }
 
 .appFooter {
-  top: 1441px;
-  position: absolute;
+  margin-top: 140px;
 }
 
 .itemsFooter {
-  top: 1080px;
-  position: absolute;
+  margin-top: 140px;
 }
 
 .footerContainer {
@@ -64,13 +60,15 @@ footer {
   }
 
   .itemsFooter {
-    top: 1014px;
-    position: absolute;
+    margin-top: 165px;
   }
 
   .registerFooter {
-    top: 1122px;
-    position: absolute;
+    margin-top: 879px;
+  }
+
+  .appFooter {
+    margin-top: 165px;
   }
 }
 
@@ -80,15 +78,22 @@ footer {
   }
 
   .itemsFooter {
-    top: 876px;
-    position: absolute;
+    margin-top: 135px;
   }
 
   .footerContainer {
     display: grid;
     grid-template-areas:
-      'b c'
-      '. .'
-      'a .';
+      "b c"
+      ". ."
+      "a .";
+  }
+
+  .registerFooter {
+    margin-top: 965px;
+  }
+
+  .appFooter {
+    margin-top: 135px;
   }
 }

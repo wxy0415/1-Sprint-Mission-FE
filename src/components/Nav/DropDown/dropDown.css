@@ -1,4 +1,8 @@
-@import '/src/assets/styles/style.css';
+@import "/src/assets/styles/style.css";
+
+.dropDownContainer {
+  position: relative;
+}
 
 .dropDown {
   border: 1px solid var(--grey-200);
@@ -56,10 +60,12 @@
   .dropDown {
     width: 42px;
     cursor: pointer;
-    background-image: url('../../../assets/images/btn_sort.png');
-    background-position: center center;
+    background-image: url("../../../assets/images/btn_sort.png");
     background-size: cover;
-    background-repeat: no-repeat;
+  }
+
+  .dropDownBox {
+    right: 0;
   }
 
   .arrow,

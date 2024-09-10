@@ -1,19 +1,22 @@
-import prevPageBtn from '../../assets/images/btn_left.png';
-import nextPageBtn from '../../assets/images/btn_right.png';
-import './pagination.css';
-import { useState, useEffect } from 'react';
-import usePageSize from '../../hook/usePageSize';
+import prevPageBtn from "../../assets/images/btn_left.png";
+import nextPageBtn from "../../assets/images/btn_right.png";
+import "./pagination.css";
+import { useState, useEffect } from "react";
 
-function Pagination({ currentPage, setCurrentPage, totalCount, className }) {
+function Pagination({
+  currentPage,
+  setCurrentPage,
+  totalCount,
+  className,
+  pageSize,
+}) {
   const [totalPage, setTotalPage] = useState([]);
-  const listPerPage = usePageSize(10, 6, 4);
 
   useEffect(() => {
-    const pages = Math.ceil(totalCount / listPerPage);
+    const pages = Math.ceil(totalCount / pageSize);
     const array = Array.from({ length: pages }, (value, i) => i + 1);
     setTotalPage(array);
-    setCurrentPage(1);
-  }, [totalCount, listPerPage, setCurrentPage]);
+  }, [totalCount, pageSize]);
 
   const handleNextPage = () => {
     setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPage.length));
@@ -28,7 +31,9 @@ function Pagination({ currentPage, setCurrentPage, totalCount, className }) {
   };
 
   const getPageNumbers = () => {
-    if (currentPage <= 3) {
+    if (totalPage.length <= 5) {
+      return totalPage;
+    } else if (currentPage <= 3) {
       return totalPage.slice(0, 5);
     } else if (currentPage >= totalPage.length - 2) {
       return totalPage.slice(totalPage.length - 5);
@@ -37,17 +42,33 @@ function Pagination({ currentPage, setCurrentPage, totalCount, className }) {
     }
   };
 
-  const paginationClass = className ? `${className} Pagination` : 'paginationContainer';
+  const paginationClass = className
+    ? `${className} Pagination`
+    : "paginationContainer";
 
   return (
     <div className={paginationClass}>
-      <img className="prevBtn" src={prevPageBtn} alt="prevBtn" onClick={handlePrevPage} />
+      <img
+        className="prevBtn"
+        src={prevPageBtn}
+        alt="prevBtn"
+        onClick={handlePrevPage}
+      />
       {getPageNumbers().map((page) => (
-        <span key={page} className={`pageBtn ${page === currentPage ? 'activeBtn' : ''}`} onClick={() => handlePageClick(page)}>
+        <span
+          key={page}
+          className={`pageBtn ${page === currentPage ? "activeBtn" : ""}`}
+          onClick={() => handlePageClick(page)}
+        >
           {page}
         </span>
       ))}
-      <img className="nextBtn" src={nextPageBtn} alt="nextBtn" onClick={handleNextPage} />
+      <img
+        className="nextBtn"
+        src={nextPageBtn}
+        alt="nextBtn"
+        onClick={handleNextPage}
+      />
     </div>
   );
 }

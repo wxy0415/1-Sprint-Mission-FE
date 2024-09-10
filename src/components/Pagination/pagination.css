@@ -1,7 +1,7 @@
-@import '/src/assets/styles/style.css';
+@import "/src/assets/styles/style.css";
 
 .itemsPagination {
-  margin: 114px 0 0;
+  margin: 43px 0 0;
   display: flex;
   gap: 4px;
   justify-content: center;

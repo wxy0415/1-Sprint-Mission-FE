@@ -118,7 +118,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: '';
+  content: "";
   content: none;
 }
 table {
@@ -135,11 +135,4 @@ table {
 
 #root {
   height: 100%;
-}
-
-html {
-  height: 100%;
-}
-body {
-  min-height: 100vh;
 }
